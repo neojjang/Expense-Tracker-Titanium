@@ -1,0 +1,20 @@
+Expense Tracker Titanium
+
+This is a sample mobile application built with Appcelerator Titanium Mobile. Not
+intended to run as production level code. Please do not hold your breath waiting
+to be impressed with this code. This is supposed to be a very basic DB CRUD app,
+nothing fancy or impressive.
+
+Expense Tracker Titanium is licensed under the Apache Public License (Version 2).
+
+
+
+Notices from Appcelerator:
+
+Appcelerator, Appcelerator Titanium and associated marks and logos are 
+trademarks of Appcelerator, Inc. 
+
+Titanium is Copyright (c) 2009-2010 by Appcelerator, Inc. All Rights Reserved.
+
+Titanium is licensed under the Apache Public License (Version 2). Please
+see the LICENSE file for the full license.
