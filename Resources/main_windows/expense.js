@@ -1,5 +1,13 @@
 var win = Titanium.UI.currentWindow;
-win.layout = 'vertical';
+var scrollView = Titanium.UI.createScrollView({
+	contentWidth:'auto',
+	contentHeight:'auto',
+	top:0,
+	showVerticalScrollIndicator:true,
+	showHorizontalScrollIndicator:true
+});
+scrollView.layout = 'vertical';
+
 var expenseType, expenseAmount, expenseDate, expenseImagePath = null;
 
 var expenseTypeLabel = Ti.UI.createLabel({
@@ -8,7 +16,7 @@ var expenseTypeLabel = Ti.UI.createLabel({
 	height: 'auto',
 	left: 5
 });
-win.add(expenseTypeLabel);
+scrollView.add(expenseTypeLabel);
 
 var expenseTypePicker = Ti.UI.createPicker();
 
@@ -19,7 +27,7 @@ expenseTypeData[2]=Ti.UI.createPickerRow({title:'Misc',custom_item:'Misc'});
 
 expenseTypePicker.selectionIndicator = true;
 expenseTypePicker.add(expenseTypeData);
-win.add(expenseTypePicker);
+scrollView.add(expenseTypePicker);
 expenseTypePicker.setSelectedRow(0,0,false);
 
 
@@ -31,7 +39,7 @@ var expenseAmountLabel = Titanium.UI.createLabel({
 	left: 5
 });
 
-win.add(expenseAmountLabel);
+scrollView.add(expenseAmountLabel);
 
 var expenseAmountField = Titanium.UI.createTextField({
 	width: 'auto',
@@ -41,7 +49,7 @@ var expenseAmountField = Titanium.UI.createTextField({
 	value: '1.25'
 });
 
-win.add(expenseAmountField);
+scrollView.add(expenseAmountField);
 
 
 
@@ -51,7 +59,7 @@ var expenseDateLabel = Ti.UI.createLabel({
 	height: 'auto',
 	left: 5
 });
-win.add(expenseDateLabel);
+scrollView.add(expenseDateLabel);
 
 var minDate = new Date();
 minDate.setFullYear(2009);
@@ -72,7 +80,7 @@ var datePicker = Ti.UI.createPicker({
 	value: valueDate
 });
 datePicker.selectionIndicator = true;
-win.add(datePicker);
+scrollView.add(datePicker);
 
 
 var expenseImage = Titanium.UI.createButton({
@@ -93,7 +101,7 @@ expenseImage.addEventListener('click', function(){
 		mediaTypes:[Ti.Media.MEDIA_TYPE_VIDEO,Ti.Media.MEDIA_TYPE_PHOTO]
 	});
 });
-win.add(expenseImage);
+scrollView.add(expenseImage);
 
 
 var submitExpenseButton = Titanium.UI.createButton({
@@ -114,7 +122,9 @@ submitExpenseButton.addEventListener('click', function(){
 		resetExpenseForm();
 	}
 });
-win.add(submitExpenseButton);
+scrollView.add(submitExpenseButton);
+
+win.add(scrollView);
 
 function validateExpenseForm(){
 	var validateVar = true;
