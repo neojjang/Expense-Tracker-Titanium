@@ -3,16 +3,14 @@ var win = Titanium.UI.currentWindow;
 win.layout = 'vertical';
 var data = [];
 
+// Big thanks to Martin Slater and Aaron Saunders for helping out with the code for the listener.
+// http://developer.appcelerator.com/question/124302/reload-sqlite-db-on-every-tab-view
 tabGroup.addEventListener('focus', function(e){
-	// setTimeout() hack since listener does not register w/o it (maybe a Titanium bug)
+	// setTimeout() hack since listener does not run w/o it (maybe a Titanium bug)
 	setTimeout(function(){
-		Ti.API.debug('Did window focus? If so do reload.');
-
 		var db = Ti.Database.open('ExpenseTrackerDemo');
 		var rows = db.execute('SELECT * FROM expenses ORDER BY expenseDate DESC');
-		db.close();
-		Ti.API.debug('row count: '+rows.rowCount);
-		
+		data = [];
 		while (rows.isValidRow()) {
 			data.push({
 				width: 'auto',
@@ -22,11 +20,10 @@ tabGroup.addEventListener('focus', function(e){
 			});
 			rows.next();
 		}
+		rows.close();
+		db.close();
 		
-		// Big problem here as-is. This does not replace the data, only appends.
 		tableview.setData(data);
-
-		Ti.API.debug('Data should be reloaded.');
 	},10);
 });
 
