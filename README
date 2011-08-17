@@ -5,6 +5,10 @@ intended to run as production level code. Please do not hold your breath waiting
 to be impressed with this code. This is supposed to be a very basic DB CRUD app,
 nothing fancy or impressive.
 
+This repo is a Titanium Studio project. If you would like to work with this code,
+be sure to install Titanium Studio which can be downloaded at the following URL:
+http://www.appcelerator.com/products/titanium-studio/
+
 Expense Tracker Titanium is licensed under the Apache Public License (Version 2).
 
 
