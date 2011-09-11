@@ -15,8 +15,11 @@ tabGroup.addEventListener('focus', function(e){
 			data.push({
 				width: 'auto',
 				height: 'auto',
-				title:'Type: '+rows.fieldByName('expenseType')+'\nAmount: $'+rows.fieldByName('expenseAmount')+'\nDate: '+rows.fieldByName('expenseDate'),
-				rightImage: rows.fieldByName('expenseImageURI')
+				'font-size': '24px',
+				color:'#000',
+				title: 'Type: '+rows.fieldByName('expenseType')+'\nAmount: $'+rows.fieldByName('expenseAmount')+'\nDate: '+rows.fieldByName('expenseDate')+'\n'+'Tap to see image',
+				entryImage: rows.fieldByName('expenseImageURI'),
+				imagePageScript: 'entry_image.js'
 			});
 			rows.next();
 		}
@@ -29,6 +32,17 @@ tabGroup.addEventListener('focus', function(e){
 
 var tableview = Ti.UI.createTableView({
 	data: data
+});
+
+tableview.addEventListener('click', function(e){
+	if (e.rowData.imagePageScript){
+		var win = Titanium.UI.createWindow({
+			url:e.rowData.imagePageScript,
+			entryImage:e.rowData.entryImage,
+			title:'Expense Image'
+		});
+		Titanium.UI.currentTab.open(win,{animated:true});
+	}
 });
 
 win.add(tableview);
