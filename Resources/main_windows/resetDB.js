@@ -4,6 +4,10 @@ win.layout = 'vertical';
 
 var resetDBButton = Titanium.UI.createButton({
 	title: 'Reset Database',
+	font: {
+		fontSize: 32,
+		fontWeight: 'bold'
+	},
 	width: 'auto',
 	height: 'auto',
 	top: 10,

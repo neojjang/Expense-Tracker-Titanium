@@ -12,6 +12,10 @@ var expenseType, expenseAmount, expenseDate, expenseImagePath = null;
 
 var expenseTypeLabel = Ti.UI.createLabel({
 	text: 'Expense Type',
+	font: {
+		fontSize: 32
+	},
+	color:'#000',
 	width: 'auto',
 	height: 'auto',
 	left: 5
@@ -34,6 +38,10 @@ expenseTypePicker.setSelectedRow(0,0,false);
 
 var expenseAmountLabel = Titanium.UI.createLabel({
 	text: 'Expense Amount',
+	font: {
+		fontSize: 32
+	},
+	color:'#000',
 	width: 'auto',
 	height: 'auto',
 	left: 5
@@ -55,6 +63,10 @@ scrollView.add(expenseAmountField);
 
 var expenseDateLabel = Ti.UI.createLabel({
 	text: 'Expense Date',
+	font: {
+		fontSize: 32
+	},
+	color:'#000',
 	width: 'auto',
 	height: 'auto',
 	left: 5
@@ -85,6 +97,10 @@ scrollView.add(datePicker);
 
 var expenseImage = Titanium.UI.createButton({
 	title:'Capture Expense Image',
+	font: {
+		fontSize: 32,
+		fontWeight: 'bold'
+	},
 	width: 'auto',
 	height: 'auto',
 	top: 5,
@@ -106,6 +122,10 @@ scrollView.add(expenseImage);
 
 var submitExpenseButton = Titanium.UI.createButton({
 	title: 'Submit Expense',
+	font: {
+		fontSize: 32,
+		fontWeight: 'bold'
+	},
 	width: 'auto',
 	height: 'auto',
 	top: 10,

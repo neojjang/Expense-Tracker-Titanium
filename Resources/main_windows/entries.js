@@ -15,7 +15,9 @@ tabGroup.addEventListener('focus', function(e){
 			data.push({
 				width: 'auto',
 				height: 'auto',
-				'font-size': '24px',
+				font: {
+					fontSize: 32
+				},
 				color:'#000',
 				title: 'Type: '+rows.fieldByName('expenseType')+'\nAmount: $'+rows.fieldByName('expenseAmount')+'\nDate: '+rows.fieldByName('expenseDate')+'\n'+'Tap to see image',
 				entryImage: rows.fieldByName('expenseImageURI'),

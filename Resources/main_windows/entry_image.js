@@ -14,10 +14,14 @@ win.add(imageView);
 
 var l = Titanium.UI.createLabel({
 	text:'Tap image to return',
+	font: {
+		fontSize: 32,
+		fontWeight: 'bold'
+	},
+	color:'#999',
 	bottom:20,
 	width:'auto',
-	height:'auto',
-	color:'#999'
+	height:'auto'
 });
 win.add(l);
 
